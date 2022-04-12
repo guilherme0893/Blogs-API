@@ -13,7 +13,7 @@ const emailValidation = (req, res, next) => {
   }
   // regex reference https://www.horadecodar.com.br/2020/09/07/expressao-regular-para-validar-e-mail-javascript-regex/
   const emailRegex = /\S+@\S+\.\S+/;
-  if (!emailRegex.test(email) || email === '@gmail.com') {
+  if (!emailRegex.test(email)) {
     return res.status(400).json({ message: '"email" must be a valid email' });
   }
   next();
