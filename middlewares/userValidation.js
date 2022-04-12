@@ -29,3 +29,9 @@ const passwordValidation = (req, res, next) => {
   }
   next();
 };
+
+module.exports = {
+  displayNameValidation,
+  emailValidation,
+  passwordValidation,
+};
