@@ -10,7 +10,7 @@ const createUser = async ({ displayName, email, password, image }) => {
     // if (checkEmail) return 'User already registered';
     if (!checkEmail) {
       const user = await User.create({ displayName, email, password, image });
-      console.log(user, 'olha o user aqui');
+      // console.log(user, 'olha o user aqui');
       return user;  
     }  
   } catch (error) {
