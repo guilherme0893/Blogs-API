@@ -1,5 +1,5 @@
 const User = require('../services/user');
-const createToken = require('../services/tokenGenerator');
+const { createToken } = require('../services/tokenGenerator');
 
 const createUser = async (req, res) => {
   const { displayName, email, password, image } = req.body;
