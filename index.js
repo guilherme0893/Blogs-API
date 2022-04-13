@@ -5,7 +5,7 @@ const app = express();
 
 // ----- ROUTES ------
 const userRouter = require('./routes/userRoutes');
-const loginRouter = require('./routes/loginRouter');
+const loginRouter = require('./routes/loginRoutes');
 // -------------------
 
 app.use('/', express.json());
