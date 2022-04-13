@@ -14,5 +14,4 @@ function createToken(user) {
 
 module.exports = { 
   createToken,
-  secret,
 };
