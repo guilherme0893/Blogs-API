@@ -18,6 +18,16 @@ const createUser = async (req, res) => {
   }
 };
 
+const getAllUsers = async (req, res) => {
+  try {
+    const users = await User.getAllUsers();
+    if (!users) return res.status(400);
+  } catch (error) {
+    console.error(error);    
+  }
+};
+
 module.exports = {
   createUser,
+  getAllUsers,
 };
