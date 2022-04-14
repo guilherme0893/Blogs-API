@@ -21,7 +21,17 @@ const getAllUsers = async () => {
   }
 };
 
+const getUser = async (id) => {
+  try {
+    const user = await User.findOne({ where: { id } });
+    return user;
+  } catch (error) {
+    console.error(error);    
+  }
+};
+
 module.exports = {
   createUser,
   getAllUsers,
+  getUser,
 };
