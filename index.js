@@ -7,6 +7,7 @@ const app = express();
 const userRouter = require('./routes/userRoutes');
 const loginRouter = require('./routes/loginRoutes');
 const categoryRouter = require('./routes/categoryRoutes');
+const blogPostRouter = require('./routes/blogPostRoutes');
 // -------------------
 
 app.use('/', express.json());
@@ -21,6 +22,8 @@ app.use('/user', userRouter);
 app.use('/login', loginRouter);
 
 app.use('/categories', categoryRouter);
+
+app.use('/post', blogPostRouter);
 
 // middleware de erro ---> ver declaração e como realizar o throw error!
 // boa prática -- atenção
