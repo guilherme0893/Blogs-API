@@ -15,8 +15,8 @@ const contentValidation = (req, res, next) => {
 };
 
 const categoryIdValidation = (req, res, next) => {
-  const { categoryId } = req.body;
-  if (!categoryId) {
+  const { categoryIds } = req.body;
+  if (!categoryIds) {
     return res.status(400).json({ message: '"categoryIds" is required' });
   }
   next();
