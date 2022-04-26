@@ -6,6 +6,10 @@ const blogPostMiddlewares = require('../middlewares/blogPostValidation');
 const tokenAuth = require('../middlewares/tokenAuth');
 const blogPostController = require('../controllers/blogpost');
 
+router.get('/',
+  tokenAuth.tokenAuth,
+  blogPostController.getAllBlogPosts);
+
 router.post('/',
   tokenAuth.tokenAuth,
   blogPostMiddlewares.contentValidation,
