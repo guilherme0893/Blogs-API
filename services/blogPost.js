@@ -9,22 +9,46 @@ const createBlogPost = async ({ title, content, categoryIds }) => {
   }
 };
 
-const getAllBlogPosts = async () => { 
-  const blogPosts = await BlogPost.findAll({ // eager loading
-    include: [{
-      model: User,
-      as: 'user',
-    },
+const getAllBlogPosts = async () => {
+  try {
+    const blogPosts = await BlogPost.findAll({ // eager loading
+      include: [{
+        model: User,
+        as: 'user',
+      },
+      {
+        model: Category,
+        as: 'categories',
+      },
+      ],
+    });
+    return blogPosts;    
+  } catch (error) {
+    console.error(error);    
+  }
+};
+
+const getBlogPostById = async (id) => {
+  try {
+    const blogPost = await BlogPost.findByPk({ // findByPk não aceita o where junto
+      include: [{
+        model: User,
+        as: 'user',
+      },
     {
       model: Category,
       as: 'categories',
-    },
-    ],
-  });
-  return blogPosts;
+    }],
+      where: { id },
+    });
+    return blogPost;    
+  } catch (error) {
+    console.error(error);    
+  }
 };
 
 module.exports = {
   createBlogPost,
   getAllBlogPosts,
+  getBlogPostById,
 };
