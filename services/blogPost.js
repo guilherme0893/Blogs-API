@@ -1,4 +1,4 @@
-const { BlogPost } = require('../models');
+const { BlogPost, User, Category } = require('../models');
 
 const createBlogPost = async ({ title, content, categoryIds }) => {
   try {
@@ -9,6 +9,22 @@ const createBlogPost = async ({ title, content, categoryIds }) => {
   }
 };
 
+const getAllBlogPosts = async () => { 
+  const blogPosts = await BlogPost.findAll({ // eager loading
+    include: [{
+      model: User,
+      as: 'user',
+    },
+    {
+      model: Category,
+      as: 'categories',
+    },
+    ],
+  });
+  return blogPosts;
+};
+
 module.exports = {
   createBlogPost,
+  getAllBlogPosts,
 };
