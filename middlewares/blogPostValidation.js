@@ -22,8 +22,15 @@ const categoryIdValidation = (req, res, next) => {
   next();
 };
 
+// const blogPostIdValidation = (req, res, next) => {
+//   const { id } = req.params;
+//   if (!id) return res.status(404).json({ message: 'Post does not exist' });
+//   next();
+// };
+
 module.exports = {
   titleValidation,
   contentValidation,
   categoryIdValidation,
+  // blogPostIdValidation,
 };
